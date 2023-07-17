@@ -1,61 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+const calculater = ()=>{
+    return(
+        
+    )
+}
 
 
-function App() {
-  const [num, setNum] = useState(0);
-  const {num2, setNum2} = useState(0);
-  const{operater, setOperater} = useState('');
 
-  const handleNumber= (e)=> {
-    const selectedNum = e.target.innerText;
-     
-    console.log(setNum)
-    if(num === 0){
-      setNum(parseFloat(selectedNum))
-    }else{
-      setNum(num +parseFloat(selectedNum))
-    }
-  }
-  const clear = () =>{
-    
-    setNum(0)
-  }
-
-  const percentage=() =>{
-    setNum(num/100)
-  }
-
-  const operaterHandler = (e)=>{
-    setOperater(e.target.innerText);
-    setNum2(num)
-    setNum(0)
-  }
-
-  const calculate = () => {
-    switch(operater){
-      case '+':
-        setNum((num2) + (num2));
-        break;
-        case '-':
-          setNum((num2) - (num2));
-          break;
-          case 'x':
-            setNum((num2) * (num2));
-            break;
-            case '/':
-              setNum((num2) / (num2));
-              break;
-              case'+/-':
-              setNum((num2) - (num2) || setNum((num2)+(num2)))
-              break;
-              default:
-              break;
-    }
-  }
-  return (
-  
-    <>
+<>
     <div className='font-serif text-lg text-slate-400 text-align-left'><h2>Kevin's Calculater App</h2></div>
     <div className='w-2/4 rounded-md border-blue-700 w-fit h-screen flex flex-wrap justify-center items-center bg-slate-700 mx-auto'>
       <div>
@@ -92,7 +43,3 @@ function App() {
 
     </div>
     </>
-  )
-}
-
-export default App
