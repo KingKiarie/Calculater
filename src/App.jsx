@@ -1,11 +1,11 @@
 import { useState } from 'react'
-// import './App.css'
+ import './App.css'
 
 
 function App() {
   const [num, setNum] = useState(0);
-  const {num2, setNum2} = useState(0);
-  const{operater, setOperater} = useState('');
+  const [num2, setNum2] = useState(0);
+  const[operater, setOperater] = useState('');
 
   const handleNumber= (e)=> {
     const selectedNum = e.target.innerText;
@@ -14,7 +14,7 @@ function App() {
     if(num === 0){
       setNum(selectedNum)
     }else{
-      setNum(num +(selectedNum))
+      setNum(num + selectedNum)
     }
   }
   const clear = () =>{
@@ -46,19 +46,19 @@ function App() {
   const calculate = () => {
     switch(operater){
       case '+':
-        setNum(parseFloat(num) + parseFloat(num2));
+        setNum(parseFloat(num2) + parseFloat(num));
         break;
         case '-':
-          setNum(parseFloat(num) - parseFloat(num2));
+          setNum(parseFloat(num2) - parseFloat(num));
           break;
           case 'x':
-            setNum(parseFloat(num) * parseFloat(num2));
+            setNum(parseFloat(num2) * parseFloat(num));
             break;
             case '/':
-              setNum(parseFloat(num) / parseFloat(num2));
+              setNum(parseFloat(num2) / parseFloat(num));
               break;
               case'+/-':
-              setNum(parseFloat(num) - parseFloat(num2) || setNum(parseFloat(num)+parseFloat(num2)))
+              setNum(parseFloat(num2) - parseFloat(num) || setNum(parseFloat(num2)+parseFloat(num)))
               break;
               default:
               break;
@@ -82,7 +82,7 @@ function App() {
           <button className='mt-5 m-2 w-14 h-14 flex items-center justify-center bg-orange-500 rounded-lg ' onClick={bracket1}>(</button>
           <button className='mt-5 m-2 w-14 h-14 flex items-center justify-center bg-orange-500 rounded-lg' onClick={bracket2}>)</button>
           <button onClick={percentage} className='mt-5 m-2 w-14 h-14 flex items-center justify-center bg-orange-500 rounded-lg'>%</button>
-          <button className='mt-5 m-2 w-14 h-14 flex items-center justify-center bg-orange-500 rounded-lg'>/</button>
+          <button onClick={operaterHandler} className='mt-5 m-2 w-14 h-14 flex items-center justify-center bg-orange-500 rounded-lg'>/</button>
           <button className='mt-5 m-2 w-14 h-14 flex items-center justify-center bg-green-500 rounded-lg' onClick={handleNumber}>7</button>
           <button className='mt-5 m-2 w-14 h-14 flex items-center justify-center bg-green-500 rounded-lg' onClick={handleNumber}>8</button>
           <button className='mt-5 m-2 w-14 h-14 flex items-center justify-center bg-green-500 rounded-lg' onClick={handleNumber}>9</button>
